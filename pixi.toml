@@ -58,8 +58,9 @@ fmt = "mojo format canvas/ tests/ examples/ scripts/"
 # weight 150. modo always emits 400 for a package root, with no config
 # flag to change it, which sorted API reference after Examples
 # (weight 200) in Hextra's sidebar.
+llms = "mkdir -p docs/site/static && mojo run -I . scripts/gen_llms_txt.mojo"
 docs-install = "bash scripts/install-modo.sh"
-docs-build = { cmd = "rm -rf docs/site/content docs/site/public docs/src/examples && mkdir -p docs/src/examples && mojo run -I . scripts/gen_example_docs.mojo && cp examples/out_*.png docs/src/examples/ && cp examples/out_vector.svg docs/src/examples/ && mojo doc -I . -o docs/src/canvas.json canvas && .tools/modo build docs -c modo.yaml && sed -i 's/^weight: 400$/weight: 150/' docs/site/content/canvas/_index.md", depends-on = [
+docs-build = { cmd = "rm -rf docs/site/content docs/site/public docs/src/examples && mkdir -p docs/src/examples && mojo run -I . scripts/gen_example_docs.mojo && mkdir -p docs/site/static && mojo run -I . scripts/gen_llms_txt.mojo && cp examples/out_*.png docs/src/examples/ && cp examples/out_vector.svg docs/src/examples/ && mojo doc -I . -o docs/src/canvas.json canvas && .tools/modo build docs -c modo.yaml && sed -i 's/^weight: 400$/weight: 150/' docs/site/content/canvas/_index.md", depends-on = [
     "docs-install",
 ] }
 # One-shot build into docs/site/public, what docs-deploy.yml deploys.

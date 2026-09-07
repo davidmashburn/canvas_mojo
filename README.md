@@ -103,6 +103,10 @@ page for a walkthrough of each path with runnable examples.
   `canvas` API reference, generated from this repo's own
   docstrings via [modo](https://github.com/mlange-42/modo) (see
   `docs/modo.yaml`/`pixi run docs`).
+- **[llms.txt](https://randyzwitch.com/canvas_mojo/llms.txt)** — the
+  whole public API on one page with recipes, for a model or a person
+  building against the library; `skills/canvas-mojo/` is the matching
+  agent skill, and `AGENTS.md` is the guide for working on the code.
 - **[Wiki](https://github.com/randyzwitch/canvas_mojo/wiki)** — what's
   built
   ([Changelog](https://github.com/randyzwitch/canvas_mojo/wiki/Changelog))
