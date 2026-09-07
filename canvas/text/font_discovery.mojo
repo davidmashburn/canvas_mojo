@@ -53,7 +53,8 @@ measuring, hinting or rasterizing.
 """
 
 from std.os import getenv, listdir
-from std.runtime.asyncrt import TaskGroup, parallelism_level
+from std.runtime import parallelism_level
+from std.runtime._asyncrt import TaskGroup
 from std.os.path import expanduser, isdir, realpath
 from std.sys.info import CompilationTarget
 

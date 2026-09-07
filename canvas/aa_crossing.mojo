@@ -27,7 +27,8 @@ downward, so each sub-scanline touches only the edges near it.
 """
 
 from std.math import ceil, floor
-from std.runtime.asyncrt import TaskGroup, parallelism_level
+from std.runtime import parallelism_level
+from std.runtime._asyncrt import TaskGroup
 
 from canvas.aa_area import _area_edges_aa, _area_edges_to_mask
 from canvas.buffer import Canvas

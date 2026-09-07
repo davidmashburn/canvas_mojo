@@ -7,7 +7,8 @@ This is the mechanism behind supersampled anti-aliasing -- render
 so every output pixel averages `factor * factor` real source samples.
 """
 
-from std.runtime.asyncrt import TaskGroup, parallelism_level
+from std.runtime import parallelism_level
+from std.runtime._asyncrt import TaskGroup
 
 from canvas.buffer import Canvas, BYTES_PER_PIXEL
 

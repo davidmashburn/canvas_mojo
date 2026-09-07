@@ -13,7 +13,8 @@ function above builds on.
 """
 
 from std.math import atan2, cos, pi, sin
-from std.runtime.asyncrt import TaskGroup, parallelism_level
+from std.runtime import parallelism_level
+from std.runtime._asyncrt import TaskGroup
 
 from canvas.color import Color
 from canvas.buffer import Canvas

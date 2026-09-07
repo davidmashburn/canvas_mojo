@@ -14,6 +14,7 @@
 comptime BYTES_PER_PIXEL = 4
 
 from std.sys import size_of
+from std.collections import Array
 
 from canvas.blend import BlendMode, _blend_pixel, _blend_span
 from canvas.color import (
@@ -175,7 +176,7 @@ struct Canvas(Copyable, DrawTarget, Movable):
     # `__init__` keeps it over the line as fields come and go. Measured
     # with Mojo 1.0 (#182); re-measure those two rows if a compiler
     # update changes how arguments are passed.
-    var _layout_pad: InlineArray[UInt8, 176]
+    var _layout_pad: Array[UInt8, 176]
     # The current transform (see `save`), and whether it is anything
     # but the identity. Every drawing call tests the flag once, so it
     # is a field rather than six comparisons on the matrix.
@@ -230,7 +231,7 @@ struct Canvas(Copyable, DrawTarget, Movable):
         self._clip_stack = List[_ClipRect]()
         self.clip_masks = List[List[UInt8]]()
         self._clip_mask_count = 0
-        self._layout_pad = InlineArray[UInt8, 176](fill=0)
+        self._layout_pad = Array[UInt8, 176](fill=0)
         comptime assert (
             size_of[Canvas]() > 256
         ), "Canvas must stay over 256 bytes -- see _layout_pad"
@@ -283,7 +284,7 @@ struct Canvas(Copyable, DrawTarget, Movable):
         self._clip_stack = List[_ClipRect]()
         self.clip_masks = List[List[UInt8]]()
         self._clip_mask_count = 0
-        self._layout_pad = InlineArray[UInt8, 176](fill=0)
+        self._layout_pad = Array[UInt8, 176](fill=0)
         comptime assert (
             size_of[Canvas]() > 256
         ), "Canvas must stay over 256 bytes -- see _layout_pad"

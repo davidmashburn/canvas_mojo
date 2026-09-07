@@ -53,7 +53,8 @@ own rows of the canvas (#97 applies as it does in the sweep).
 """
 
 from std.math import ceil, floor
-from std.runtime.asyncrt import TaskGroup, parallelism_level
+from std.runtime import parallelism_level
+from std.runtime._asyncrt import TaskGroup
 
 from canvas.aa_crossing import _EdgeTable, _MIN_PARALLEL_PIXELS
 from canvas.buffer import Canvas

@@ -35,6 +35,7 @@ past its data.
 """
 
 from std.math import cos, pi, sqrt
+from std.collections import Array
 
 from canvas.buffer import Canvas, BYTES_PER_PIXEL
 
@@ -341,7 +342,7 @@ def _idct_block(
     comptime V = SIMD[DType.float32, 8]
     var cp = coef.unsafe_ptr()
     var bp = basis.unsafe_ptr()
-    var rows = InlineArray[V, 8](fill=V(0.0))
+    var rows = Array[V, 8](fill=V(0.0))
     for v in range(8):
         var acc = V(0.0)
         for u in range(8):

@@ -35,7 +35,8 @@ that call takes the blit path above.
 
 from std.math import ceil, floor
 from std.memory import unsafe_memcpy
-from std.runtime.asyncrt import TaskGroup, parallelism_level
+from std.runtime import parallelism_level
+from std.runtime._asyncrt import TaskGroup
 
 from canvas.aa_crossing import _MIN_PARALLEL_PIXELS
 from canvas.buffer import Canvas, BYTES_PER_PIXEL
